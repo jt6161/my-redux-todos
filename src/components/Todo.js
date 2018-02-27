@@ -2,7 +2,7 @@ import React from 'react'
 
 const Todo = (props) => {
   return (
-    <li>{props.todo}</li>
+    <li>{props.todo.title}</li>
   )
 }
 

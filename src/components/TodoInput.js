@@ -11,7 +11,10 @@ class TodoInput extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.addTodo(this.state.newTodo)
+    this.props.addTodo({
+      id: this.props.newId,
+      title: this.state.newTodo
+    })
   }
 
   render () {
@@ -35,5 +38,13 @@ function mapDispatchToProps(dispatch) {
     addTodo: bindActionCreators(addTodo, dispatch)
   }
 }
+ function mapStateToProps(state) {
+   console.log(state.todos.length)
+   return {
+     newId: state.todos.length + 1
+   }
+ }
 
-export default connect(null, mapDispatchToProps)(TodoInput)
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoInput)

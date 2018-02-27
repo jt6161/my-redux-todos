@@ -3,10 +3,9 @@ import Todo from './Todo'
 import { connect } from 'react-redux'
 
 const TodoList = (props) => {
-  console.log('props in tl', props)
   let listOfTodos = props.todos.map(todo => {
     return (
-      <Todo key={todo} todo={todo} />
+      <Todo key={todo.id} todo={todo} />
     )
   })
   return (
